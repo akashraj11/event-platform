@@ -1,0 +1,60 @@
+<div class="signup">
+	<mat-card>
+		<mat-card-title class="textPos">
+			Theatre Details
+		</mat-card-title>
+		<mat-card-content>
+			<form [formGroup]="signUpForm" class="form" novalidate>
+
+		<!--	<mat-form-field>
+					<input name="theatreId" matInput formControlName="theatreId" placeholder="Theatre Id" type="theatreId" [(ngModel)]="theatre.theatreId" >
+					<mat-error align="start" *ngIf="formErrors.theatreid" class="form__error">{{ formErrors.theatreId }}</mat-error>
+				</mat-form-field>-->	
+        
+				<mat-form-field>
+					<input name="theatreName" matInput formControlName="theatreName" placeholder="Theatre name" type="text" minlength="5" [(ngModel)]="theatre.theatreName" required>
+					<mat-error align="start" *ngIf="formErrors.theatreName" class="form__error">{{ formErrors.theatreName}}</mat-error>
+				</mat-form-field>
+
+                <mat-form-field>
+                    <input name="theatreCity" matInput formControlName="theatreCity" placeholder="Theatre City" type="text" minlength="5" [(ngModel)]="theatre.theatreCity" required>
+                    <mat-error align="start" *ngIf="formErrors.theatreCity" class="form__error">{{ formErrors.theatreCity }}</mat-error>
+                </mat-form-field>
+
+				<mat-form-field>
+            <input name="theatreAddress" matInput formControlName="theatreAddress" placeholder="Theatre Address" type="text" minlength="5" maxlength="20" [(ngModel)]="theatre.theatreAddress" required> 
+            <mat-error align="start" *ngIf="formErrors.theatreAddress" class="form__error">{{ formErrors.theatreAddress}}</mat-error>
+        </mat-form-field>
+
+        <h3 class="textPos">Seat Layout For Arena</h3>
+
+        <h4 class="textPos">Gold Class</h4>
+
+        <mat-form-field>
+            <input name="noOfColumns1" matInput formControlName="noOfColumns1" placeholder="No of Columns in Gold Class Arena" type="number"  [(ngModel)]="noOfColumns1" required>
+            <mat-error align="start" *ngIf="formErrors.noOfColumns1" class="form__error">{{ formErrors.noOfColumns1 }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input name="noOfRows1" matInput formControlName="noOfRows1" placeholder="No of Rows in Gold Class  Arena" type="number"  [(ngModel)]="noOfRows1" required>
+            <mat-error align="start" *ngIf="formErrors.noOfRows1" class="form__error">{{ formErrors.noOfRows1 }}</mat-error>
+        </mat-form-field>
+
+      <h4 class="textPos">Silver Class</h4>
+
+        <mat-form-field>
+            <input name="noOfColumns2" matInput formControlName="noOfColumns2" placeholder="No of Columns in Silver Class Arena" type="number"  [(ngModel)]="noOfColumns2" required>
+            <mat-error align="start" *ngIf="formErrors.noOfColumns2" class="form__error">{{ formErrors.noOfColumns2 }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input name="noOfRows2" matInput formControlName="noOfRows2" placeholder="No of Rows in Silver Class Arena" type="number" [(ngModel)]="noOfRows2" required>
+            <mat-error align="start" *ngIf="formErrors.noOfRows2" class="form__error">{{ formErrors.noOfRows2 }}</mat-error>
+        </mat-form-field>
+			</form>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-button (click)="submit()">Submit</button>
+		</mat-card-actions>
+	</mat-card>
+</div>

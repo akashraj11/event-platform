@@ -1,0 +1,67 @@
+{
+    "email": "akashraj@gmail.com",
+    "theatres": [
+        {
+            "theatreId": 1,
+            "theatreName": "Balaji",
+            "theatreCity": "Bangalore",
+            "theatreAddress": "teverakare",
+            "screenLayout": {
+                "category": [
+                    {
+                        "type": "gold",
+                        "noOfColumns": 8,
+                        "noOfRows": 3,
+                        "seatLayout": [
+                            {
+                                "seatNumber": 3
+                            }
+                        ]
+                    },{
+                        "type": "silver",
+                        "noOfColumns": 5,
+                        "noOfRows": 3,
+                        "seatLayout": [
+                            {
+                                "seatNumber": 5
+                            },
+                            {
+                                "seatNumber": 4
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "theatreId": 2,
+            "theatreName": "Lakshmi",
+            "theatreCity": "Bangalore",
+            "theatreAddress": "Sg Palya",
+            "screenLayout": {
+                "category": [
+                    {
+                        "type": "gold",
+                        "noOfColumns": 6,
+                        "noOfRows": 3,
+                        "seatLayout": [
+                            {
+                                "seatNumber": 3
+                            }
+                        ]
+                    },
+                    {
+                        "type": "silver",
+                        "noOfColumns": 5,
+                        "noOfRows": 2,
+                        "seatLayout": [
+                            {
+                                "seatNumber": 4
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

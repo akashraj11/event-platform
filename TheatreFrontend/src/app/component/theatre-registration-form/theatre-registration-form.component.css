@@ -1,0 +1,20 @@
+.signup {
+    max-width: 90%px;
+    margin:auto 100px ;
+}    
+form {
+      display: flex;
+      flex-direction: column;
+    }
+
+.textPos{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 425px) {
+    .signup {
+        max-width: 90%px;
+        margin:0;
+    }    
+}

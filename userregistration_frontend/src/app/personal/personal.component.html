@@ -1,0 +1,223 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step>
+    <!--[stepControl]="userDetails"-->
+    <ng-template matStepLabel>
+      <mat-icon>account_circle</mat-icon> Fill the details
+    </ng-template>
+    <form class="form1" [formGroup]="userDetails" (ngSubmit)="onSubmitUserDetails(userDetails.value)"fxLayout fxLayout="column"  fxLayoutAlign="center center" fxLayoutGap="10px">
+      <!-- here the formgroup name is userdetails (in the ts file) and onsubmit will just print to the console -->
+      <mat-form-field class="inputbox">
+        <input formControlName="name" [(ngModel)]="userName" matInput placeholder="Full name" required>
+        <!-- <mat-error>Username must start with a letter </mat-error> -->
+        <mat-error *ngFor="let validation of validation_messages.name">
+          <mat-error class="error-message" *ngIf="userDetails.get('name').hasError(validation.type) && (userDetails.get('name').dirty || userDetails.get('name').touched)">{{validation.message}}</mat-error>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="inputbox">
+        <input formControlName="email" [(ngModel)]="userEmail" matInput placeholder="abc@mail.com" required>
+        <mat-error>This email is invalid.</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="inputbox">
+        <input formControlName="password" type="password" matInput placeholder="type password"
+          required>
+        <mat-error>password length should be minimum 6</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="inputbox">
+        <input formControlName="passwordConfirm" type="password" [(ngModel)]="userPassword" matInput placeholder="confirm password"
+          required>
+        <mat-error>password length should be minimum 6</mat-error>
+      </mat-form-field>
+      <div class="inputbox">
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <!--  //[stepControl] ="stepDetails" -->
+    <ng-template matStepLabel>
+      <mat-icon>home</mat-icon> Fill the details
+    </ng-template>
+    <form class="ultimatestep2" [formGroup]="stepDetails" (ngSubmit)="onSubmitStepDetails(stepDetails.value)">
+      <section class="step2 ">
+        <div class="step2form">
+          <label>Pick your Location:</label>
+
+          <mat-form-field>
+            <mat-select formControlName="city" [(ngModel)]="selectedLocation" placeholder="Location" required>
+              <mat-option *ngFor="let location of locations" [value]="location.value"> {{location.value}} </mat-option>
+            </mat-select>
+
+          </mat-form-field>
+        </div>
+        <br>
+        <div class="step2form">
+          <label>Date of Birth:</label>
+          <mat-form-field>
+            <input formControlName="dob" matInput [matDatepicker]="picker" [(ngModel)]="userDateOfBirth" placeholder="date of birth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+
+          </mat-form-field>
+        </div>
+        <br>
+        <div class="step2form">
+          <label>Gender:</label>
+          <mat-radio-group formControlName="gender" [(ngModel)]="genderOfUser">
+
+            <mat-radio-button value="male">Male </mat-radio-button>
+            <mat-radio-button value="female"> Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <br>
+        <div class="step2form">
+          <label>Phone number:</label>
+          <mat-form-field>
+
+            <input formControlName="phone_number" [(ngModel)]="userPhone_number" matInput placeholder="phone number"
+              required>
+            <mat-error>Enter a valid phone number</mat-error>
+
+          </mat-form-field>
+        </div>
+      </section>
+
+      <section class="bu">
+        <br>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+        <br>
+        <div>
+          <button mat-button matStepperPrevious>Previous</button>
+        </div>
+
+
+      </section>
+      <br>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>
+      <mat-icon>movie</mat-icon> Pick your favourite genre
+    </ng-template>
+
+
+
+    <mat-button-toggle-group class="example-card" name="fontStyle" aria-label="Font Style" multiple>
+      <!-- <mat-button-toggle class="inside" *ngFor="let genre of genres" (ngOnChanges)="selectGenre($event)">{{genre}}</mat-button-toggle> -->
+      <mat-button-toggle class="inside" value="Comedy" (change)="onSubmitStep2Details($event.value)"><img src="https://m.media-amazon.com/images/G/01/IMDb/genres/Comedy._CB1513316167_SX233_CR0,0,233,131_AL_.jpg"
+          alt="Comedy"></mat-button-toggle>
+      <mat-button-toggle class="inside" value="Horror" (change)="onSubmitStep2Details($event.value)"><img src="https://m.media-amazon.com/images/G/01/IMDb/genres/Horror._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+          alt="Horror"></mat-button-toggle>
+      <mat-button-toggle class="inside" value="Action" (change)="onSubmitStep2Details($event.value)"><img src="https://m.media-amazon.com/images/G/01/IMDb/genres/Action._CB1513316166_SX233_CR0,0,233,131_AL_.jpg"
+          alt="Action"></mat-button-toggle>
+      <mat-button-toggle class="inside" value="Fantasy" (change)="onSubmitStep2Details($event.value)"><img src="https://m.media-amazon.com/images/G/01/IMDb/genres/Fantasy._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+          alt="Fantasy"></mat-button-toggle>
+
+      <mat-button-toggle class="inside" value="Scifi" (change)="onSubmitStep2Details($event.value)"><img src="https://m.media-amazon.com/images/G/01/IMDb/genres/Sci-Fi._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+          alt="Sci-FI"></mat-button-toggle>
+      <mat-button-toggle class="inside" value="Romantic" (change)="onSubmitStep2Details($event.value)"><img src="https://m.media-amazon.com/images/G/01/IMDb/genres/Romance._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+          alt="Romantic"></mat-button-toggle>
+      <mat-button-toggle class="inside" value="Rom-com" (change)="onSubmitStep2Details($event.value)"><img src="https://m.media-amazon.com/images/G/01/IMDb/genres/Comedy-Romance._CB1513316167_SX233_CR0,0,233,131_AL_.jpg"
+          alt="Rom-com"></mat-button-toggle>
+      <mat-button-toggle class="inside" value="Drama" (change)="onSubmitStep2Details($event.value)"><img src="https://m.media-amazon.com/images/G/01/IMDb/genres/Drama._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+          alt="Drama"></mat-button-toggle>
+    </mat-button-toggle-group>
+
+
+    <section class="bu">
+      <br>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+      <br>
+      <div>
+        <button mat-button matStepperPrevious>Previous</button>
+      </div>
+
+
+    </section>
+
+
+    <!-- <mat-button-toggle-group  name="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle class="example-card" value="bold">Action</mat-button-toggle>
+                    </mat-button-toggle-group>
+            <mat-button-toggle-group  name="fontStyle" aria-label="Font Style">
+                   <mat-button-toggle class="example-card" value="bold">Action</mat-button-toggle>
+                  </mat-button-toggle-group>
+        
+
+                  <mat-button-toggle-group  name="fontStyle" aria-label="Font Style">
+                      <mat-button-toggle class="example-card" value="bold">Action</mat-button-toggle>
+                      </mat-button-toggle-group> -->
+    <!-- <mat-card class="example-card" >
+          <mat-card-title class ="card-title" >
+            <strong>Comedy</strong> </mat-card-title>
+  
+        </mat-card>
+
+       <mat-card class="example-card" >
+            <mat-card-title class ="card-title" >
+              <strong >Horror</strong> </mat-card-title>
+    
+          </mat-card>
+        
+          <mat-card class="example-card" (click)="listClick($event)">
+              <mat-card-title class ="card-title" >
+                <strong>Fiction</strong> </mat-card-title>
+      
+            </mat-card> -->
+
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>
+      <mat-icon> beenhere</mat-icon>
+      Submit
+    </ng-template>
+    <h1>
+      Hola Matey!!! Successfully Registered
+    </h1>
+    <section class="laststep">
+      <label>Username : {{userName}}</label>
+      <br>
+      <br>
+      <label>Gender : {{genderOfUser}}</label>
+      <br>
+      <br>
+      <label>Email : {{userEmail}}</label>
+
+      <br>
+
+      <br>
+      <label>Date of birth : {{userDateOfBirth | date:'mediumDate':'yyyy'}}</label>
+      <br>
+      <br>
+      <label>Location : {{selectedLocation}} </label>
+
+      <br>
+      <br>
+      <label> Phone number : {{userPhone_number}}</label>
+
+
+
+
+
+
+      <ul>
+        <div class="genreinline">Selected Genres : </div>
+        <li *ngFor="let b of gen">{{b}} </li>
+      </ul>
+    </section>
+
+
+    <button (click)="saveDetails()">Submit</button>
+
+
+  </mat-step>
+
+</mat-horizontal-stepper>

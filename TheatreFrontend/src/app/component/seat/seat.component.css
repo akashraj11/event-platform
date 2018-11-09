@@ -1,0 +1,142 @@
+
+.font14 {
+    font-size: 14px;
+}
+.font16 {
+    font-size: 16px;
+}
+.marginTop5 {
+    margin-top: 5px;
+}
+.marginTB10 {
+    margin: 10px 0px;
+}
+.wordWrap {
+    word-break: break-all;
+}
+
+.innerContainer {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    width: 350px;
+}
+.seat {
+    padding-right: 5px;
+}
+
+.legend {
+    font-size: 14px;
+}
+.legend > .padding-left {
+    padding-left: 15px;
+}
+.screen {
+    background: hsla(216, 72%, 50%, 0.65);
+    height: 3px;
+    border-radius: 15px;
+    margin: -5px 50px 10px;
+    box-shadow: 0px 3px 6px rgb(3, 3, 3);
+}
+.freeSeat {
+    color: rgb(15, 15, 15);
+}
+
+.gold{
+    color: #D4AF37;
+}
+
+.silver{
+    color: #708090;
+}
+
+
+
+
+
+
+@media screen and (max-width: 400px) {
+    
+    .font14 {
+        font-size: 15px;
+    }
+    .font16 {
+        font-size: 8px;
+    }
+    .marginTop5 {
+        margin-top: 2px;
+    }
+    .marginTB10 {
+        margin: 5px 0px;
+    }
+    .wordWrap {
+        word-break: break-all;
+        font-size: 15px;
+    }
+    
+    
+    .innerContainer {
+        color: rgb(0, 0, 0);
+        text-align: center;
+    }
+    .movie {
+        margin: -10px -5px 10px -5px;
+        height: 100px;
+        background: #FFFAFA;   
+    }
+    .movieDetails {
+        font-size: 15px;
+        margin-top: -3px;
+    }
+    .movieTitle {
+        font-size: 15px;
+        padding-top: 5px;
+        margin-top: -3px;
+    }
+    .seat {
+        padding-right: 5px;
+    }
+    
+    .legend {
+        font-size: 10px;
+    }
+    .legend > .padding-left {
+        padding-left: 7px;
+    }
+    .screen {
+        background: hsla(216, 72%, 50%, 0.65);
+        height: 3px;
+        border-radius: 7px;
+        margin: -5px 25px 5px;
+        box-shadow: 0px 1px 3px rgb(3, 3, 3);
+    }
+    .reservedSeat {
+        color: #ce4844;
+        font-size: 15px;
+    }
+    .selectedSeat {
+        color: #5cb85c;
+        font-size: 15px;
+    }
+    .freeSeat {
+        color: rgb(15, 15, 15);
+        font-size: 15px;
+    }
+    
+    
+    .gold{
+        color: #D4AF37;
+    }
+    
+    .silver{
+        color: #708090;
+    }
+    
+    
+    
+    
+}
+
+
+
+
+

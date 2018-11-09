@@ -1,0 +1,8 @@
+<mat-card-actions>
+        <button class="button" mat-button routerLink="/registrationform" (click)="onClick()" ><span>Add Theatre</span></button>
+</mat-card-actions>
+    
+
+<div *ngFor="let theatre of tempTheatre"> 
+<app-card [some] = "theatre" *ngIf="value == 0"></app-card>
+</div>
